@@ -4,8 +4,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ModelView {
-    private ViewName viewName;
-    private Object model;
+    private final ViewName viewName;
+    private final Object model;
 
     public ModelView(ViewName viewName, Object model) {
         this.viewName = viewName;
@@ -16,7 +16,7 @@ public class ModelView {
         Viewer viewer = Viewer.getInstance();
         Method[] declaredMethods = Viewer.class.getDeclaredMethods();
         for (Method declaredMethod : declaredMethods) {
-            if (declaredMethod.getName() == this.viewName.name()) {
+            if (declaredMethod.getName().equals(this.viewName.name())) {
                 declaredMethod.invoke(viewer, model);
             }
         }

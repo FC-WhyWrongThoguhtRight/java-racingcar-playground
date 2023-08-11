@@ -8,10 +8,10 @@ import view.Viewer;
 import java.lang.reflect.InvocationTargetException;
 
 public class Dispatcher {
-    private CarHandler carHandler;
-    private Viewer viewer;
+    private final CarHandler carHandler;
+    private final Viewer viewer;
 
-    private static Dispatcher instance = new Dispatcher(CarHandler.getInstance(), Viewer.getInstance());
+    private static final Dispatcher instance = new Dispatcher(CarHandler.getInstance(), Viewer.getInstance());
 
     private Dispatcher(CarHandler carHandler, Viewer viewer) {
         this.carHandler = carHandler;

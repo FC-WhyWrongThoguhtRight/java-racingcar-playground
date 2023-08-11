@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Viewer {
-    private Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
-    private static Viewer instance = new Viewer();
+    private static final Viewer instance = new Viewer();
 
     private Viewer() {
     }

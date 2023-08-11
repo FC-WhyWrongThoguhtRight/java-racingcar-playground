@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarHandler {
-    private static CarHandler instance = new CarHandler();
+    private static final CarHandler instance = new CarHandler();
 
     private CarHandler() {
     }
