@@ -1,23 +1,30 @@
-import java.awt.*;
-import java.util.List;
+package model;
 
-public class Cars {
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
+public class Cars{
 
     Car[] cars;
-    String DELMINITOR = ",";
+    String DELIMINATOR = ",";
 
     public Cars(String names) {
         setCars(names);
     }
 
     private void setCars(String names) {
-        String[] tokens = names.split(DELMINITOR);
+        String[] tokens = names.split(DELIMINATOR);
 
         cars = new Car[tokens.length];
         for(int i = 0 ; i < tokens.length ; i++){
             cars[i] = new Car(tokens[i]);
         }
 
+    }
+
+    public Car[] getCars(){
+        return cars;
     }
 
     public int size() {
@@ -35,5 +42,13 @@ public class Cars {
 
     public Car get(int num) {
         return cars[num];
+    }
+
+    public int getMaxLocation() {
+        int max = -1;
+        for(Car car : cars){
+            max = Math.max(car.getLocation(), max);
+        }
+        return max;
     }
 }
