@@ -8,7 +8,6 @@ public class OutputView {
 
     private static final String RESULT_MESSAGE = "\n실행결과";
     private static final String COLON = " : ";
-    private static final String SIGN = "-";
     private static final String WINNER = "가 최종 우승했습니다.";
 
     public static void printResult(){
@@ -16,17 +15,13 @@ public class OutputView {
     }
 
     public static void printResult_Car(Car car){
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < car.getDistance().getDistance(); i++){
-            sb.append(SIGN);
-        }
-        System.out.println(car.getCarName().getName() + COLON +sb);
+        System.out.println(car.getCarName() + COLON + car.getDistanceSign());
     }
 
     public static void printWinner(List<Car> winnerList) {
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < winnerList.size(); i++){
-            sb.append(winnerList.get(i).getCarName().getName());
+            sb.append(winnerList.get(i).getCarName());
             if(i != (winnerList.size()-1)){
                 sb.append(", ");
             }

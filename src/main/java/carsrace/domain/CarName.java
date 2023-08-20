@@ -9,10 +9,6 @@ public class CarName {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     private void validateNullCheck(String name){
         if(name == null || name.isEmpty()){
             throw new NullPointerException("차 이름의 빈값 또는 null 값을 입력할 수 없습니다.");
@@ -25,7 +21,8 @@ public class CarName {
         }
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return name;
+    }
 }
