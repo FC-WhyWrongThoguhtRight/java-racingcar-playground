@@ -2,6 +2,7 @@ package model;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class NameTest {
@@ -28,5 +29,11 @@ public class NameTest {
                 .isThrownBy(() -> {
                     Name name = new Name("asdfasdf");
                 }).withMessageMatching("이름은 5글자 이하 이여야 합니다.");
+    }
+
+    @Test
+    void 이름출력하면_제대로나오나(){
+        Name name = new Name("name");
+        assertThat(name.toString()).isEqualTo("name");
     }
 }

@@ -2,16 +2,21 @@ package model;
 
 import View.ResultView;
 
+import java.util.List;
+
 public class Track{
 
     Cars cars;
     Lap laps;
     MovingStrategy ms;
+    ResultView rv;
 
     public Track(Cars cars, Lap laps) {
         this.cars = cars;
         this.laps = laps;
         ms = new RandomMovingStragety();
+        rv = ResultView.getInstance();
+
     }
 
     public boolean hasCars() {
@@ -24,12 +29,12 @@ public class Track{
 
     public void run() {
 
-        while(laps.isEmpty()){
+        rv.printResult();
+        while(!laps.isEmpty()){
 
             cars.move(ms);
-            ResultView.getInstance().printCurrentRace(cars);
-
+            rv.printCurrentRace(cars);
+            laps = laps.reduceLap();
         }
-
     }
 }

@@ -1,10 +1,8 @@
 package controller;
 
 import View.InputView;
-import model.Cars;
-import model.Lap;
-import model.Name;
-import model.Track;
+import View.ResultView;
+import model.*;
 
 import java.util.List;
 import java.util.Scanner;
@@ -13,10 +11,12 @@ public class RacingGame {
 
     Scanner sc;
     InputView inputView;
+    ResultView resultView;
 
     public RacingGame(Scanner sc) {
         this.sc = sc;
         inputView = InputView.getInstance();
+        resultView = ResultView.getInstance();
     }
 
     public void play() {
@@ -27,5 +27,8 @@ public class RacingGame {
         Track track = new Track(cars, lap);
 
         track.run();
+
+        List<Car> winners = cars.getWinner();
+        resultView.printWinners(winners);
     }
 }

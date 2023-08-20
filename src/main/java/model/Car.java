@@ -6,12 +6,12 @@ public class Car {
     private Name name;
 
     public Car(Name name) {
-        this(name, 0);
+        this(name, new Location(0));
     }
 
-    public Car(Name name, int location) {
+    public Car(Name name, Location location) {
         this.name = name;
-        this.location = new Location(location);
+        this.location = location;
     }
 
 
@@ -31,5 +31,28 @@ public class Car {
 
     public boolean isGreaterThan(Car car) {
         return this.location.isGreaterThan(car.location);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(name.toString()).append(" : ").append(location.toString());
+        return sb.toString();
+    }
+
+    public Location getBiggerLocation(Location maxLocation) {
+        if(this.location.isGreaterThan(maxLocation)){
+            return this.location;
+        }
+        return maxLocation;
+    }
+
+    public boolean isWinner(Location max) {
+        return this.location.equals(max);
+    }
+
+
+    public String nameToStrings() {
+        return name.toString();
     }
 }

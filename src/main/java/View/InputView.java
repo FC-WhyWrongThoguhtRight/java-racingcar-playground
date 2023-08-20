@@ -21,13 +21,12 @@ public class InputView {
 
 
     public List<Name> scanCarNames(Scanner sc){
-        System.out.print("경주 할 자동차 이름을 입력하세요");
-        System.out.println("(이름은 쉼표(,)를 기준으로 구분");
+        System.out.println(RacingStrings.inputCarNames);
         return RacingGameUtil.splitNames(sc.nextLine());
     }
 
     public Lap scanLap(Scanner sc) {
-        System.out.println("시도할 회수는 몇 회 인가요?");
+        System.out.println(RacingStrings.inputLaps);
         return new Lap(sc.nextInt());
     }
 }

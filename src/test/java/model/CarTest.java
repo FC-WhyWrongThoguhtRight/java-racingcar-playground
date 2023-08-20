@@ -16,7 +16,7 @@ public class CarTest {
 
     @Test
     void 자동차가위치가있는가() {
-        Car car = new Car(new Name("name"), 1);
+        Car car = new Car(new Name("name"), new Location(1));
         assertThat(car.hasLocation());
     }
 
@@ -24,7 +24,7 @@ public class CarTest {
     void 자동차가이동하는가(){
         Car car = new Car(new Name("name"));
         car.move(() -> true);
-        assertThat(car.isGreaterThan(new Car(new Name("name"), 0))).isTrue();
+        assertThat(car.isGreaterThan(new Car(new Name("name"), new Location(0)))).isTrue();
     }
 
 
