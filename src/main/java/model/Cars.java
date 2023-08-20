@@ -6,11 +6,11 @@ import java.util.List;
 public class Cars {
     List<Car> cars;
 
-    public Cars(List<String> nameList){
+    public Cars(List<Name> nameList){
 
         cars = new ArrayList<>();
 
-        for(String name : nameList){
+        for(Name name : nameList){
             cars.add(new Car(name));
         }
 

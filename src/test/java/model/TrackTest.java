@@ -1,5 +1,6 @@
 package model;
 
+import controller.RacingGameUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ public class TrackTest {
     Track track;
     @BeforeEach
     void setup(){
-        track = new Track(new Cars(Arrays.asList("zxcv","asdf")), new Lap(5));
+        track = new Track(new Cars(RacingGameUtil.splitNames("qwer,asdf")), new Lap(5));
     }
 
     @Test
