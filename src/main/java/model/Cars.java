@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,4 +29,8 @@ public class Cars {
         }
     }
 
+    //어따써야하냐..
+    public boolean isGraterThan(Cars cars2) {
+        return true;
+    }
 }

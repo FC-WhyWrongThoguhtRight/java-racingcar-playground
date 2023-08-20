@@ -1,8 +1,7 @@
-import Model.Cars;
-import org.assertj.core.api.Assertions;
+package model;
+
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,5 +16,12 @@ public class CarsTest {
         assertThat(cars.hasCar()).isTrue();
     }
 
+    @Test
+    void 자동차들을출발시키면전진하는가() {
+        List<String> namesList = Arrays.asList("asdf","zxcv");
+        Cars cars = new Cars(namesList);
+        cars.move(() -> true);
 
+        //테스트를 어케 해야하지..
+    }
 }
