@@ -2,6 +2,8 @@ package handler;
 
 import domain.Car;
 import domain.Cars;
+import domain.MovingStrategy;
+import domain.RandomMovingStrategy;
 import view.ModelView;
 import view.ViewName;
 
@@ -10,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class CarHandler {
     private static final CarHandler instance = new CarHandler();
+    private static final MovingStrategy strategy = new RandomMovingStrategy();
 
     private CarHandler() {
     }
@@ -25,7 +28,7 @@ public class CarHandler {
         }
 
         for (Car car : cars.getCarList()) {
-            car.tryMove();
+            car.tryMove(strategy);
         }
         return new ModelView(ViewName.showResult, cars);
     }

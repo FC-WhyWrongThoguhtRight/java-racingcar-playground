@@ -1,8 +1,8 @@
 package domain;
 
-import java.util.Random;
-
 public class Car {
+    private static final int FORWARD_NUM = 4;
+
     private final String name;
     private Integer pos;
 
@@ -23,10 +23,14 @@ public class Car {
         this.pos = pos;
     }
 
-    public void tryMove() {
-        Random random = new Random();
-        int ranNum = random.nextInt(10);
-        if (ranNum >= 4) {
+    public void tryMove(MovingStrategy strategy) {
+        if (strategy.movable()) {
+            this.pos++;
+        }
+    }
+
+    public void tryMove(Integer ranNum) {
+        if (ranNum >= FORWARD_NUM) {
             this.pos++;
         }
     }
