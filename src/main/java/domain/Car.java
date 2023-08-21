@@ -2,7 +2,7 @@ package domain;
 
 public class Car {
     private final Name name;
-    private Position pos;
+    private final Position pos;
 
     public Car(String name) {
         this.name = new Name(name);

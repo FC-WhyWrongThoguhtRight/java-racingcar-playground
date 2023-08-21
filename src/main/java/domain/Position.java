@@ -7,9 +7,8 @@ public class Position {
         this.pos = pos;
     }
 
-    public Position move() {
+    public void move() {
         pos = pos + 1;
-        return this;
     }
 
     public int value() {
