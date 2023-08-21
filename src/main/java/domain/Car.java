@@ -1,44 +1,32 @@
 package domain;
 
 public class Car {
-    private static final int FORWARD_NUM = 4;
-
-    private final String name;
-    private Integer pos;
+    private final Name name;
+    private Position pos;
 
     public Car(String name) {
-        this.name = name;
-        this.pos = 1;
+        this.name = new Name(name);
+        this.pos = new Position(1);
     }
 
     public String getName() {
-        return name;
+        return name.value();
     }
 
-    public Integer getPos() {
-        return pos;
-    }
-
-    public void setPos(Integer pos) {
-        this.pos = pos;
+    public int getPos() {
+        return pos.value();
     }
 
     public void tryMove(MovingStrategy strategy) {
         if (strategy.movable()) {
-            this.pos++;
-        }
-    }
-
-    public void tryMove(Integer ranNum) {
-        if (ranNum >= FORWARD_NUM) {
-            this.pos++;
+            pos.move();
         }
     }
 
     public String getResult() {
         StringBuffer sb = new StringBuffer();
-        sb.append(this.name).append(" : ");
-        for (int i = 0; i < pos; i++) {
+        sb.append(this.name.value()).append(" : ");
+        for (int i = 0; i < pos.value(); i++) {
             sb.append("-");
         }
         sb.append('\n');
