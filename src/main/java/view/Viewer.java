@@ -1,9 +1,7 @@
 package view;
 
-import domain.Car;
 import domain.Cars;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Viewer {
@@ -39,18 +37,10 @@ public class Viewer {
     }
 
     public void showResult(Cars cars) {
-        StringBuffer sb = new StringBuffer();
-        for (Car car : cars.getCarList()) {
-            sb.append(car.getResult());
-        }
-        System.out.println(sb);
+        System.out.println(cars.getCurrent());
     }
 
     public void showFinish(Cars winners) {
-        List<Car> winnerList = winners.getCarList();
-        StringBuffer sb = new StringBuffer(winnerList.get(0).getName());
-        winnerList.stream().skip(1).forEach(car -> sb.append(", ").append(car.getName()));
-        sb.append("가 최종 우승했습니다.");
-        System.out.println(sb);
+        System.out.println(winners.getWinners());
     }
 }
